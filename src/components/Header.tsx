@@ -17,7 +17,7 @@ import LogoImg from '/public/assets/logo.svg';
 import SearchIcon from '/public/assets/icon-search.svg';
 import IconUser from '/public/assets/icon-user.svg';
 
-// Components
+// Layout
 import GridContainer from './Grid';
 
 const Header = () => {

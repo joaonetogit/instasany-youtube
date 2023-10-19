@@ -7,9 +7,8 @@ import IconFile from '/public/assets/icon-file.svg';
 import IconHand from '/public/assets/icon-hand.svg';
 import IconHand02 from '/public/assets/icon-hand-02.svg';
 import EmptyMockup from '/public/assets/mockup.svg';
-import MainMockup from '/public/assets/mockup-main.png';
 
-// Componentes
+// Layout
 import GridContainer from './Grid';
 
 const SectionHero = () => {
@@ -53,7 +52,6 @@ const SectionHero = () => {
             alt="Empty mockup"
             className="relative -rotate-12 top-[18px] left-[53px]"
           />
-          <Image src={MainMockup} alt="Main mockup" />
           <Image
             src={EmptyMockup}
             alt="Empty mockup"
