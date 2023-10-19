@@ -1,6 +1,11 @@
+'use client';
+
 // Core
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+
+// Libraries
+import gsap from 'gsap';
 
 // Medias
 import IconFile from '/public/assets/icon-file.svg';
@@ -12,10 +17,59 @@ import EmptyMockup from '/public/assets/mockup.svg';
 import GridContainer from './Grid';
 
 const SectionHero = () => {
+  const textHeroRef = useRef(null);
+  const mockupLeftRef = useRef(null);
+  const mockupRightRef = useRef(null);
+
+  useEffect(() => {
+    const textHero = textHeroRef.current;
+    const mockupLeft = mockupLeftRef.current;
+    const mockupRight = mockupRightRef.current;
+
+    gsap.fromTo(
+      textHero,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power4.out',
+      },
+    );
+
+    gsap.fromTo(
+      mockupLeft,
+      {
+        rotate: 0,
+      },
+      {
+        rotate: -10,
+        duration: 1,
+      },
+    );
+
+    gsap.fromTo(
+      mockupRight,
+      {
+        rotate: 0,
+      },
+      {
+        rotate: 10,
+        duration: 1,
+      },
+    );
+  }, []);
+
   return (
     <section className="relative w-full bg-hero bg-no-repeat bg-top bg-green-primary h-section-hero border-t border-t-green-border pt-[70px] overflow-hidden">
       <GridContainer className="flex flex-col items-center">
-        <div className="w-full max-w-text-hero text-center">
+        <div
+          ref={textHeroRef}
+          className="w-full max-w-text-hero text-center opacity-0"
+        >
           <h3 className="text-xl font-medium text-green-actived mb-4">
             Novo curto focado em instagram
           </h3>
@@ -48,14 +102,16 @@ const SectionHero = () => {
         </div>
         <div className="aboslute bottom-0 w-full max-w-mockups-hero flex justify-between">
           <Image
+            ref={mockupLeftRef}
             src={EmptyMockup}
             alt="Empty mockup"
-            className="relative -rotate-12 top-[18px] left-[53px]"
+            className="relative top-[18px] left-[53px]"
           />
           <Image
+            ref={mockupRightRef}
             src={EmptyMockup}
             alt="Empty mockup"
-            className="relative rotate-12 top-[18px] right-[53px]"
+            className="relative top-[18px] right-[53px]"
           />
         </div>
       </GridContainer>
