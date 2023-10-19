@@ -24,7 +24,7 @@ const Header = () => {
   const currentRoute = usePathname();
   const activedStyle = 'bg-green-actived text-opacity-100 rounded-full';
   const styleNormalMenu =
-    'px-3 py-1 text-white text-opacity-40 hover:text-opacity-100 transition-all';
+    'flex items-center justify-center px-3 py-1 text-white text-opacity-40 hover:text-opacity-100 transition-all';
 
   return (
     <header className="relative w-full h-24 bg-green-primary flex items-center">
